@@ -7,10 +7,9 @@ import { Container } from './styles';
 export default function Board() {
   return (
     <Container>
-      <List />
-      <List />
-      <List />
-      <List />
+      <List title='To Do'  />
+      <List title='Doing' />
+      <List title='Done' />
     </Container>
   )
 }

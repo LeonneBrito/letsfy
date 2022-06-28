@@ -1,18 +1,18 @@
 import React from 'react';
-import { FiPlus } from 'react-icons/fi';
 
 import Card from '../Card';
 
 import { Container } from './styles';
 
-export default function List() {
+interface ListProps {
+  title: string;
+}
+
+export default function List({ title }: ListProps) {
   return (
     <Container>
       <header>
-        <h2>Tarefas</h2>
-        <button type="button">
-          <FiPlus size={24} color="#FFF" />
-        </button>
+        <h2>{ title }</h2>
       </header>
       <ul>
         <Card />

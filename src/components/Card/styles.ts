@@ -21,6 +21,13 @@ export const Container = styled.div`
     line-height: 20px;
   }
 
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
 `;
 
 export const Label = styled.span`
