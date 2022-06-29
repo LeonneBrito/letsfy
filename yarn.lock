@@ -392,10 +392,24 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
+"@types/react-beautiful-dnd@^13.1.2":
+  version "13.1.2"
+  resolved "https://registry.yarnpkg.com/@types/react-beautiful-dnd/-/react-beautiful-dnd-13.1.2.tgz#510405abb09f493afdfd898bf83995dc6385c130"
+  integrity sha512-+OvPkB8CdE/bGdXKyIhc/Lm2U7UAYCCJgsqmopFmh9gbAudmslkI8eOrPDjg4JhwSE6wytz4a3/wRjKtovHVJg==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@^18.0.0":
   version "18.0.5"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.5.tgz#330b2d472c22f796e5531446939eacef8378444a"
   integrity sha512-OWPWTUrY/NIrjsAPkAk1wW9LZeIjSvkXRhclsFO8CZcZGCOg2G0YZy4ft+rOyYxy8B7ui5iZzi9OkDebZ7/QSA==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-edit-text@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@types/react-edit-text/-/react-edit-text-4.4.1.tgz#bc4bf77cad2276a43f54fc20948b49f3307917c5"
+  integrity sha512-laxuWOhfG3QPNC5aiOnEgpqLfyLC5mWOJvYjpzpbrT+Q0+k1kFFzyMTTQhQuvj7MoNYld7XG+pOy90B8SAJZlw==
   dependencies:
     "@types/react" "*"
 
@@ -729,6 +743,11 @@ chalk@^4.0.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+classnames@^2.2.6:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
 
 clsx@^1.1.1:
   version "1.1.1"
@@ -2156,6 +2175,14 @@ react-dom@^18.0.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
+
+react-edit-text@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/react-edit-text/-/react-edit-text-5.0.2.tgz#e1418a16f615cc5b833f455ccffd24d18c566ab2"
+  integrity sha512-V3M4KhgQDbKa1I6F5OLrhqu9w/T4XONFEyC4RijdSxDs+L5srpsCH6V5CSWGNT6pu6f4VG03n736RB3lMCTUkw==
+  dependencies:
+    classnames "^2.2.6"
+    prop-types "^15.8.1"
 
 react-icons@^4.4.0:
   version "4.4.0"

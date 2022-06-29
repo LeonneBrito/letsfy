@@ -1,19 +1,27 @@
 import { collect } from 'collect.js';
 import { useEffect, useState } from 'react';
 
+import { ICard } from '../../@types';
 import { useFetch } from '../../services/api';
 import List from '../List';
 import { Container } from './styles';
 
 export default function Board() {
-  const [lists, setLists] = useState([] as unknown[]);
+  const [listTodo, setListTodo] = useState([] as ICard[]);
+  const [listDoing, setListDoing] = useState([] as ICard[]);
+  const [listDone, setListDone] = useState([] as ICard[]);
 
   const { data } = useFetch('/cards');
 
   useEffect(() => {
-    const collection = collect(data);
-    const grouped = collection.groupBy('lista');
-    setLists(Object.entries(grouped.all()));
+    const collection = collect<ICard>(data);
+    const filteredTodos = collection.filter((item) => item.lista === 'ToDo');
+    const filteredDoings = collection.filter((item) => item.lista === 'Doing');
+    const filteredDones = collection.filter((item) => item.lista === 'Done');
+
+    setListTodo(filteredTodos.all());
+    setListDoing(filteredDoings.all());
+    setListDone(filteredDones.all());
   }, [data]);
 
   if (!data) {
@@ -22,9 +30,9 @@ export default function Board() {
 
   return (
     <Container>
-      {lists.map((list: any) => (
-        <List key={list[0]} title={list[0]} cards={list[1]} />
-      ))}
+      <List title="ToDo" cards={listTodo} />
+      <List title="Doing" cards={listDoing} />
+      <List title="Done" cards={listDone} />
     </Container>
   );
 }

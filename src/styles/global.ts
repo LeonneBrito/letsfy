@@ -69,4 +69,16 @@ export default createGlobalStyle`
     }
   }
 
+  .edit-title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .edit-content {
+    margin-top: 5px;
+    font-weight: 400;
+    color: #808080;
+    font: 14px 'Roboto', sans-serif;
+  }
+
 `;
