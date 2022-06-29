@@ -1,15 +1,14 @@
 import { AxiosError } from 'axios';
-
 import React, {
   createContext,
-  useCallback,
-  useState,
-  useContext,
   ReactNode,
+  useCallback,
+  useContext,
+  useState,
 } from 'react';
-
-import { api } from "../services/api";
 import { toast } from 'react-toastify';
+
+import { api } from '../services/api';
 
 interface SignInCredentials {
   login: string;
@@ -47,8 +46,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       localStorage.setItem('@Letsfy:token', token);
       localStorage.setItem('@Letsfy:user', login);
-      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      
+
       setUser(login);
       toast.success('Login realizado com sucesso!');
     } catch (err) {
@@ -70,11 +68,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   return (
     <AuthContext.Provider
-      value={{ 
-        user, 
-        signIn, 
-        signOut, 
-        signed 
+      value={{
+        user,
+        signIn,
+        signOut,
+        signed,
       }}
     >
       {children}
@@ -89,4 +87,3 @@ export function useAuth() {
   }
   return context;
 }
-

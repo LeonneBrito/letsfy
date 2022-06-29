@@ -25,14 +25,12 @@ export const Container = styled.div`
       width: 42px;
       height: 42px;
       border-radius: 18px;
-      background: #F5B324;
+      background: #f5b324;
       border: 0;
     }
-
   }
 
   ul {
     margin-top: 30px;
   }
-
 `;

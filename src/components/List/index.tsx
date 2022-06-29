@@ -1,26 +1,20 @@
 import React from 'react';
 
+import { IList } from '../../@types';
 import Card from '../Card';
-
 import { Container } from './styles';
 
-interface ListProps {
-  title: string;
-}
-
-export default function List({ title }: ListProps) {
+export default function List({ title, cards }: IList) {
   return (
     <Container>
       <header>
-        <h2>{ title }</h2>
+        <h2>{title}</h2>
       </header>
       <ul>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {cards.map((card) => (
+          <Card key={card.id} {...card} />
+        ))}
       </ul>
     </Container>
-  )
+  );
 }

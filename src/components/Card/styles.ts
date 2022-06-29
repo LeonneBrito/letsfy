@@ -16,9 +16,16 @@ export const Container = styled.div`
     left: 15px;
   }
 
-  p {
+  h4 {
+    font-size: 16px;
     font-weight: 500;
-    line-height: 20px;
+  }
+
+  p {
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #808080;
   }
 
   footer {
@@ -27,7 +34,6 @@ export const Container = styled.div`
     justify-content: flex-end;
     gap: 0.5rem;
   }
-
 `;
 
 export const Label = styled.span`
@@ -35,5 +41,5 @@ export const Label = styled.span`
   height: 10px;
   border-radius: 2px;
   display: inline-block;
-  background: ${props => props.color};
+  background: ${(props) => props.color};
 `;

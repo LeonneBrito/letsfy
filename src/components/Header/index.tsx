@@ -7,5 +7,5 @@ export default function Header() {
     <Container>
       <h1>Letsfy</h1>
     </Container>
-  )
+  );
 }
