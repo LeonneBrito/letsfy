@@ -69,6 +69,12 @@ export default createGlobalStyle`
     }
   }
 
+  .edit-button {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+  }
+
   .edit-title {
     font-size: 16px;
     font-weight: 500;

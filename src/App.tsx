@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import { NewCardModal } from './components/NewCardModal';
 import { useAuth } from './hooks/useAuth';
+import { CardsProvider } from './hooks/useCard';
 
 function App() {
   const { signIn } = useAuth();
@@ -23,15 +24,15 @@ function App() {
       login: import.meta.env.VITE_APP_API_LOGIN,
       senha: import.meta.env.VITE_APP_API_PASSWORD,
     });
-  }, [signIn]);
+  }, []);
 
   return (
-    <>
+    <CardsProvider>
       <Header />
       <Board />
       <NewCardModal isOpen={isCardModalOpen} onRequestClose={handleCloseCardModal} />
       <Footer openModal={handleOpenCardModal} />
-    </>
+    </CardsProvider>
   );
 }
 

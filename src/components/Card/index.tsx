@@ -2,34 +2,63 @@ import 'react-edit-text/dist/index.css';
 
 import React, { useEffect, useState } from 'react';
 import { EditText, EditTextarea } from 'react-edit-text';
-import { FiEdit2, FiSave, FiTrash, FiXCircle } from 'react-icons/fi';
+import {
+  FiArrowLeft,
+  FiArrowRight,
+  FiEdit,
+  FiSave,
+  FiTrash,
+  FiXCircle,
+} from 'react-icons/fi';
 import { toast } from 'react-toastify';
 
 import { ICard } from '../../@types';
-import { api } from '../../services/api';
+import { useCard } from '../../hooks/useCard';
 import { Container, Label } from './styles';
 
 export default function Card({ conteudo, id, lista, titulo }: ICard) {
   const [color, setColor] = useState('');
   const [edit, setEdit] = useState(false);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState(titulo);
+  const [content, setContent] = useState(conteudo);
+  const [step, setStep] = useState(0);
+
+  const list = ['ToDo', 'Doing', 'Done'];
+
+  const { editCard, deleteCard } = useCard();
 
   useEffect(() => {
     switch (lista) {
       case 'ToDo':
         setColor('#FF669D');
+        setStep(0);
         break;
       case 'Doing':
         setColor('#FFD666');
+        setStep(1);
         break;
       case 'Done':
         setColor('#37C77F');
+        setStep(2);
         break;
       default:
         break;
     }
   }, []);
+
+  const incrementStep = async () => {
+    if (step < 2) {
+      setStep(step + 1);
+    }
+    await editCard(id, { titulo, conteudo, lista: list[step + 1] });
+  };
+
+  const decrementStep = async () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+    await editCard(id, { titulo, conteudo, lista: list[step - 1] });
+  };
 
   const handleSave = async () => {
     if (title.length === 0) {
@@ -42,24 +71,12 @@ export default function Card({ conteudo, id, lista, titulo }: ICard) {
       return;
     }
 
-    try {
-      await api.put(`cards/${id}`, {
-        id: id,
-        titulo: title,
-        conteudo: content,
-        lista: lista,
-      });
-
-      setEdit(false);
-      toast.success('Cartão atualizado com sucesso');
-    } catch (err) {
-      toast.error('Erro ao salvar');
-    }
+    await editCard(id, { titulo: title, conteudo: content, lista });
+    setEdit(false);
   };
 
   const handleDelete = async () => {
-    await api.delete(`/cards/${id}`);
-    toast.success('Cartão deletado com sucesso!');
+    await deleteCard(id);
   };
 
   return (
@@ -91,11 +108,13 @@ export default function Card({ conteudo, id, lista, titulo }: ICard) {
           <header>
             <Label color={color} />
           </header>
+          <FiEdit size={18} onClick={() => setEdit(true)} className="edit-button" />
           <h4>{titulo}</h4>
           <p>{conteudo}</p>
           <footer>
-            <FiEdit2 size={18} onClick={() => setEdit(true)} />
+            {lista !== 'ToDo' && <FiArrowLeft size={18} onClick={decrementStep} />}
             <FiTrash size={18} onClick={handleDelete} />
+            {lista !== 'Done' && <FiArrowRight size={18} onClick={incrementStep} />}
           </footer>
         </React.Fragment>
       )}

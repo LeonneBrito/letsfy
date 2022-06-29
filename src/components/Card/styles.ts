@@ -22,6 +22,7 @@ export const Container = styled.div<ContainerProps>`
   }
 
   h4 {
+    margin-top: 0.5rem;
     font-size: 16px;
     font-weight: 500;
   }
@@ -40,28 +41,10 @@ export const Container = styled.div<ContainerProps>`
   footer {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-around;
     gap: 0.5rem;
+    margin-top: 0.5rem;
   }
-  /*
-  ${(props) =>
-    props.isDragging &&
-    css`
-      border: 2px dashed rgba(0, 0, 0, 0.2);
-      padding-top: 31px;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-      cursor: grabbing;
-
-      p,
-      h4,
-      header,
-      svg {
-        opacity: 0;
-      }
-    `}
-    */
 `;
 
 export const Label = styled.span`

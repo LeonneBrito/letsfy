@@ -2,7 +2,7 @@ import { collect } from 'collect.js';
 import { useEffect, useState } from 'react';
 
 import { ICard } from '../../@types';
-import { useFetch } from '../../services/api';
+import { useCard } from '../../hooks/useCard';
 import List from '../List';
 import { Container } from './styles';
 
@@ -11,20 +11,22 @@ export default function Board() {
   const [listDoing, setListDoing] = useState([] as ICard[]);
   const [listDone, setListDone] = useState([] as ICard[]);
 
-  const { data } = useFetch('/cards');
+  const { cards } = useCard();
 
   useEffect(() => {
-    const collection = collect<ICard>(data);
+    const collection = collect<ICard>(cards);
     const filteredTodos = collection.filter((item) => item.lista === 'ToDo');
     const filteredDoings = collection.filter((item) => item.lista === 'Doing');
     const filteredDones = collection.filter((item) => item.lista === 'Done');
 
+    const groupedTodos = collection.groupBy('lista');
+
     setListTodo(filteredTodos.all());
     setListDoing(filteredDoings.all());
     setListDone(filteredDones.all());
-  }, [data]);
+  }, [cards]);
 
-  if (!data) {
+  if (!cards) {
     return <Container />;
   }
 

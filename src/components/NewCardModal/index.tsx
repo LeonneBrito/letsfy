@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
 
 import closeImg from '../../assets/close.svg';
-import { api } from '../../services/api';
+import { useCard } from '../../hooks/useCard';
 import { Container } from './styles';
 
 Modal.setAppElement('#root');
@@ -16,6 +16,8 @@ export function NewCardModal({ isOpen, onRequestClose }: INewCardModalProps) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
+  const { createCard } = useCard();
+
   const resetForm = () => {
     setTitle('');
     setDescription('');
@@ -24,12 +26,7 @@ export function NewCardModal({ isOpen, onRequestClose }: INewCardModalProps) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const newCard = {
-      titulo: title,
-      conteudo: description,
-      lista: 'ToDo',
-    };
-    await api.post('/cards', newCard);
+    await createCard({ titulo: title, conteudo: description });
     resetForm();
   };
 
