@@ -19,8 +19,6 @@ export default function Board() {
     const filteredDoings = collection.filter((item) => item.lista === 'Doing');
     const filteredDones = collection.filter((item) => item.lista === 'Done');
 
-    const groupedTodos = collection.groupBy('lista');
-
     setListTodo(filteredTodos.all());
     setListDoing(filteredDoings.all());
     setListDone(filteredDones.all());

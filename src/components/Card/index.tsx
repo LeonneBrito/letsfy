@@ -75,8 +75,8 @@ export default function Card({ conteudo, id, lista, titulo }: ICard) {
     setEdit(false);
   };
 
-  const handleDelete = async () => {
-    await deleteCard(id);
+  const handleDelete = () => {
+    deleteCard(id);
   };
 
   return (

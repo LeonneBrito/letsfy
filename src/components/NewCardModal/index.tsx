@@ -26,7 +26,7 @@ export function NewCardModal({ isOpen, onRequestClose }: INewCardModalProps) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    await createCard({ titulo: title, conteudo: description });
+    await createCard({ titulo: title, conteudo: description, lista: 'ToDo' });
     resetForm();
   };
 
