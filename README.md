@@ -27,14 +27,15 @@
 
 # 📌 Conteúdo
 
-* [Imagens](#camera-screenshot) 
-* [Tecnologias](#rocket-technologies) 
-* [Como testar](#computer-how-to-run)
-* [Bugs](#bug-issues)
-* [Contribuições](#sparkles-issues)
-* [Licença](#page_facing_up-license)
+- [Imagens](#camera-screenshot)
+- [Tecnologias](#rocket-technologies)
+- [Como testar](#computer-how-to-run)
+- [Bugs](#bug-issues)
+- [Contribuições](#sparkles-issues)
+- [Licença](#page_facing_up-license)
 
 # :camera: Imagens
+
 <div align="center">
    <img src="./.github/screen1.png" width="400px">
    <img src="./.github/screen2.png" width="400px">
@@ -42,14 +43,15 @@
 </div>
 
 # :rocket: Tecnologias
+
 Esse projeto foi construido com as seguintes tecnologias:
 
-* [Typescript](https://www.typescriptlang.org/)      
-* [React](https://reactjs.org/)      
-* [Styled Components](https://styled-components.com/)
-* [Vite](https://vitejs.dev/)
-* [SWR](https://swr.vercel.app/pt-BR)
-* [React Edit Text](https://github.com/bymi15/react-edit-text#readme)      
+- [Typescript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [Vite](https://vitejs.dev/)
+- [SWR](https://swr.vercel.app/pt-BR)
+- [React Edit Text](https://github.com/bymi15/react-edit-text#readme)
 
 # :computer: Como testar
 
@@ -74,6 +76,7 @@ VITE_APP_API_URL=
 # Rode a aplicação
 $ yarn start
 ```
+
 Vá para http://localhost:3000/ para ver o resultado.
 
 # :bug: Bugs
@@ -90,6 +93,6 @@ Crie um <a href="https://github.com/LeonneBrito/letsfy/issues">novo reporte de b
 # :page_facing_up: Licença
 
 This project is under the [MIT license](./LICENSE).
-Made with 💖 by [Leonne Brito](https://www.linkedin.com/in/leonne-sousa-brito/). 
+Made with 💖 by [Leonne Brito](https://www.linkedin.com/in/leonne-sousa-brito/).
 
 Obrigado! 🌠
