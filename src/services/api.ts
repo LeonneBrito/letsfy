@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios';
 import useSWR from 'swr';
 
 export const api: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: import.meta.env.VITE_APP_API_URL,
   headers: {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${localStorage.getItem('@Letsfy:token')}`,
